@@ -1,5 +1,7 @@
 # Ansible role: Github cli
 
+[![CI](https://github.com/f-ansible/ar-role-gh/workflows/CI/badge.svg?event=push)](https://github.com/f-ansible/ar-role-gh/actions?query=workflow%3ACI)
+
 Installs [ Github cli ](https://github.com/cli/cli),  GitHub’s official command line tool on any RHEL/CentOS or Debian/Ubuntu Linux system.
 
 ## Requirements
