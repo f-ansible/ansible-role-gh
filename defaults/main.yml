@@ -1,7 +1,7 @@
 ---
 # defaults file for githubcli
 #
-gh_version: "1.8.0"
+gh_version: "1.8.1"
 gh_system: "{{ansible_system | lower}}"
 gh_arch: "amd64"
 
