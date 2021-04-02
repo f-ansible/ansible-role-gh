@@ -1,0 +1,18 @@
+---
+- import_tasks: install-from-source.yml
+  when: gh_install_from_source | bool
+
+- name: Ensure github cli is installed (Debian).
+  apt:
+    deb: "https://github.com/cli/cli/releases/download/v{{ gh_version }}/gh_{{ gh_version }}_{{ gh_system }}_{{ gh_arch }}.deb"
+  when:
+    - not gh_install_from_source | bool
+    - ansible_os_family == 'Debian'
+
+- name: Ensure github cli is installed (Redhat).
+  yum:
+    name: "https://github.com/cli/cli/releases/download/v{{ gh_version }}/gh_{{ gh_version }}_{{ gh_system }}_{{ gh_arch }}.rpm"
+    state: present
+  when:
+    - not gh_install_from_source | bool
+    - ansible_os_family == 'RedHat'

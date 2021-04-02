@@ -1,0 +1,5 @@
+---
+- name: Download github cli.
+  get_url:
+    url: "https://github.com/cli/cli/releases/download/v{{ gh_version }}/gh_{{ gh_version }}_{{ gh_system }}_{{ gh_arch }}.tar.gz"
+    dest: "/tmp/gh_{{ gh_version }}_{{ gh_system }}_{{ gh_arch }}.tar.gz"

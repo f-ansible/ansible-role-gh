@@ -1,0 +1,29 @@
+---
+sudo: required
+python:
+  - 3.7
+  - 3.8
+  - 3.9
+language: python
+services:
+  - docker
+env:
+  jobs:
+    - image="ubuntu" tag="focal"
+    - image="ubuntu" tag="bionic"
+    - image="centos" tag="7"
+jobs:
+  exclude:
+  - python: 3.9
+    # env:
+    # - image="ubuntu" tag="bionic"
+    # - image="ubuntu" tag="xenial"
+before_install:
+  - sudo apt-get -qq update
+install:
+  - python3 -m pip install molecule docker pre-commit
+script:
+  - pre-commit run -a
+  - molecule test
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

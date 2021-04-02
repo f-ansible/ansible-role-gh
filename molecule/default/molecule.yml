@@ -1,0 +1,18 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: ubuntu-bionic
+    image: ubuntu:bionic
+  - name: ubuntu-focal
+    image: ubuntu:focal
+  - name: centos-7
+    image: centos:7
+provisioner:
+  name: ansible
+  playbooks:
+    converge: ${MOLECULE_PLAYBOOK:-converge.yml}
+# verifier:
+#   name: ansible
